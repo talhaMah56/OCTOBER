@@ -29,7 +29,7 @@ namespace OCTOBER.Server.Controllers.UD
 
         public async Task<IActionResult> Delete(int SchoolID)
         {
-            Debugger.Launch();
+            
             try
             {
                 await _context.Database.BeginTransactionAsync();
@@ -58,7 +58,7 @@ namespace OCTOBER.Server.Controllers.UD
         [Route("Get")]
         public async Task<IActionResult> Get()
         {
-            Debugger.Launch();
+            
             try
             {
                 await _context.Database.BeginTransactionAsync();

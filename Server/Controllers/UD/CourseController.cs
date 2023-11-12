@@ -34,6 +34,7 @@ namespace OCTOBER.Server.Controllers.UD
         [HttpGet]
         [Route("Get/{SchoolID}/{CourseNo}")]
         //  Route for this is....  <URL>/api/Course/Get/10
+
         public async Task<IActionResult> Get(int SchoolID, int CourseNo)
         {
             try
@@ -70,6 +71,7 @@ namespace OCTOBER.Server.Controllers.UD
 
         [HttpGet]
         [Route("Get")]
+
         public async Task<IActionResult> Get()
         {
             try
@@ -102,6 +104,7 @@ namespace OCTOBER.Server.Controllers.UD
 
         [HttpPost]
         [Route("Post")]
+
         public async Task<IActionResult> Post([FromBody]
                                                 CourseDTO _CourseDTO)
         {
@@ -137,12 +140,10 @@ namespace OCTOBER.Server.Controllers.UD
 
         [HttpPut]
         [Route("Put")]
+
         public async Task<IActionResult> Put([FromBody]
                                                 CourseDTO _CourseDTO)
         {
-
-            Debugger.Launch();
-
             try
             {
                 await _context.Database.BeginTransactionAsync();
@@ -170,11 +171,9 @@ namespace OCTOBER.Server.Controllers.UD
 
         [HttpDelete]
         [Route("Delete/{CourseNo}")]
+
         public async Task<IActionResult> Delete(int CourseNo)
         {
-
-            Debugger.Launch();
-
             try
             {
                 await _context.Database.BeginTransactionAsync();

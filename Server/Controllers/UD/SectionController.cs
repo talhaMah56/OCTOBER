@@ -61,6 +61,7 @@ namespace OCTOBER.Server.Controllers.UD
 
         [HttpGet]
         [Route("Get")]
+
         public async Task<IActionResult> Get()
         {
             try
@@ -147,7 +148,9 @@ namespace OCTOBER.Server.Controllers.UD
             {
                 await _context.Database.BeginTransactionAsync();
 
-                var itm = await _context.Sections.Where(x => x.SectionId == _SectionDTO.SectionId).FirstOrDefaultAsync();
+                var itm = await _context.Sections.Where(x => x.SectionId == _SectionDTO.SectionId)
+                    .Where(x => x.SchoolId == _SectionDTO.SchoolId)
+                    .FirstOrDefaultAsync();
 
                 if (itm == null)
                 {
@@ -178,13 +181,16 @@ namespace OCTOBER.Server.Controllers.UD
 
         [HttpPut]
         [Route("Put")]
+
         public async Task<IActionResult> Put([FromBody] SectionDTO _SectionDTO)
         {
             try
             {
                 await _context.Database.BeginTransactionAsync();
 
-                var itm = await _context.Sections.Where(x => x.SectionId == _SectionDTO.SectionId).FirstOrDefaultAsync();
+                var itm = await _context.Sections.Where(x => x.SectionId == _SectionDTO.SectionId)
+                    .Where(x => x.SchoolId == _SectionDTO.SchoolId)
+                    .FirstOrDefaultAsync();
 
                 itm.SchoolId = _SectionDTO.SchoolId;
                 itm.CourseNo = _SectionDTO.CourseNo;
