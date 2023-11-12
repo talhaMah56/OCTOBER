@@ -34,7 +34,7 @@ namespace OCTOBER.Server.Controllers.UD
         [HttpDelete]
         [Route("Delete/{SchoolId}/{StudentId}/{SectionId}/{GradeTypeCode}/{GradeCodeOccurrence}")]
 
-        public async Task<IActionResult> Delete(int SchoolId, int StudentId, int SectionId, char GradeTypeCode, int GradeCodeOccurrence)
+        public async Task<IActionResult> Delete(int SchoolId, int StudentId, int SectionId, string GradeTypeCode, int GradeCodeOccurrence)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace OCTOBER.Server.Controllers.UD
         [HttpGet]
         [Route("Get/{SchoolId}/{StudentId}/{SectionId}/{GradeTypeCode}/{GradeCodeOccurrence}")]
 
-        public async Task<IActionResult> Get(int SchoolId, int StudentId, int SectionId, char GradeTypeCode, int GradeCodeOccurrence)
+        public async Task<IActionResult> Get(int SchoolId, int StudentId, int SectionId, string GradeTypeCode, int GradeCodeOccurrence)
         {
             try
             {

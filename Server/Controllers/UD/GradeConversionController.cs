@@ -41,7 +41,7 @@ namespace OCTOBER.Server.Controllers.UD
                 await _context.Database.BeginTransactionAsync();
 
                 var itm = await _context.GradeConversions.Where(x => x.SchoolId == SchoolId)
-                    .Where(x => x.LetterGrade == LetterGrade).FirstOrDefaultAsync();
+                    .Where(x => x.LetterGrade.Equals(LetterGrade)).FirstOrDefaultAsync();
 
                 if (itm != null)
                 {
@@ -105,7 +105,7 @@ namespace OCTOBER.Server.Controllers.UD
                 GradeConversionDTO? result = await _context
                     .GradeConversions
                     .Where(x => x.SchoolId == SchoolId)
-                    .Where(x => x.LetterGrade == LetterGrade)
+                    .Where(x => x.LetterGrade.Equals(LetterGrade))
                      .Select(sp => new GradeConversionDTO
                      {
                          SchoolId = sp.SchoolId,
@@ -142,7 +142,7 @@ namespace OCTOBER.Server.Controllers.UD
 
                 var itm = await _context.GradeConversions.Where(x => x.SchoolId == _GradeConversionDTO.SchoolId)
                     //To check if that enrollment already exists
-                    .Where(x => x.LetterGrade == _GradeConversionDTO.LetterGrade)
+                    .Where(x => x.LetterGrade.Equals(_GradeConversionDTO.LetterGrade))
                     .FirstOrDefaultAsync();
 
                 if (itm == null)
@@ -180,7 +180,7 @@ namespace OCTOBER.Server.Controllers.UD
 
                 var itm = await _context.GradeConversions.Where(x => x.SchoolId == _GradeConversionDTO.SchoolId)
                                         //To check if that enrollment already exists
-                                        .Where(x => x.LetterGrade == _GradeConversionDTO.LetterGrade)
+                                        .Where(x => x.LetterGrade.Equals(_GradeConversionDTO.LetterGrade))
                                         .FirstOrDefaultAsync();
 
                 itm.SchoolId = _GradeConversionDTO.SchoolId;
