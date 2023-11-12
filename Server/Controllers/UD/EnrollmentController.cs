@@ -17,7 +17,6 @@ using OCTOBER.Server.Controllers.Base;
 using OCTOBER.Shared.DTO;
 using static System.Collections.Specialized.BitVector32;
 
-
 namespace OCTOBER.Server.Controllers.UD
 {
     [Route("api/[controller]")]
